@@ -1,0 +1,8 @@
+prefix=/home/atharva/controls/niyantum/devel
+
+Name: drop
+Description: Description of drop
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

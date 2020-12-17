@@ -1,0 +1,8 @@
+prefix=/home/atharva/controls/niyantum/devel
+
+Name: utils
+Description: Description of utils
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
