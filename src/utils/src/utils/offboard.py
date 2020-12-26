@@ -32,17 +32,29 @@ class mavcon:
 			print "Service call failed: %s"%e
 
 	def gotopose(self,x,y,z):
-		rate = rospy.Rate(10)
+		rate = rospy.Rate(20)
 		sp = PoseStamped()
 		sp.pose.position.x = x
 		sp.pose.position.y = y
 		sp.pose.position.z = z
 		dist = np.sqrt(((self.pt.x-x)**2) + ((self.pt.y-y)**2) + ((self.pt.z-z)**2))
-		while(dist > 0.1):
+		while(dist > 0.08):
 			self.pub.publish(sp)
 			dist = np.sqrt(((self.pt.x-x)**2) + ((self.pt.y-y)**2) + ((self.pt.z-z)**2))
 			rate.sleep()
 		print('Reached ',x,y,z)
+
+	def offboard(self):
+		rate = rospy.Rate(10)
+		sp = PoseStamped()
+		sp.pose.position.x = 0.0
+		sp.pose.position.y = 0.0
+		sp.pose.position.z = 0.0
+		for i in range(10):
+			self.pub.publish(sp)
+			rate.sleep()
+		print('We are good to go!!')
+		self.setmode("OFFBOARD")
 
 
 	def loc_pose(self,data):
