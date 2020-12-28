@@ -10,7 +10,7 @@ from mavros_msgs.msg import *
 from mavros_msgs.srv import * 
 from sensor_msgs.msg import *
 import math
-
+from utils.offboard import mavcon
 
 
 def setarm(x): # input: 1=arm, 0=disarm
@@ -85,35 +85,29 @@ def alt_control():
 		elif(throttle>1000.0):
 			throttle = 1000.0
 
-		man_msg = ManualControl()
-		man_msg.x = 0.0
-		man_msg.y = 0.0
-		man_msg.z = throttle
-		man_msg.r = 0.0
-		#print(ez_n)
-		#print(t_pid)
+		sr = AttitudeTarget()
+		sr.type_mask = 0
+		sr.orientation.x = 0.0
+		sr.orientation.y = 0.0
+		sr.orientation.z = 0.0
+		sr.orientation.w = 0.0
+		sr.body_rate.x = 0.0
+		sr.body_rate.y = 0.0
+		sr.body_rate.z = 0.0
+		sr.thrust = 0.8
 
-		print(throttle, ez_n, t_pid)
-
-		pub.publish(man_msg)
-        rate.sleep()
+		print(sr)
+		pub.publish(sr)
+		rate.sleep()
 
 
 if __name__ == '__main__':
 	rospy.init_node('drop_node', anonymous=True)
 	print("drop_node initialised...")
-	pub = rospy.Publisher('mavros/manual_control/send', ManualControl, queue_size=100)
+	pub = rospy.Publisher('/mavros/setpoint_raw/attitude', AttitudeTarget, queue_size=1)
 	rospy.Subscriber("/mavros/imu/data", Imu, imu_call)
 	rospy.Subscriber("/lidar/data", LaserScan, lid_call)
-	
+	mvc = mavcon()
 	setarm(1)
-	
-	setmode('MANUAL')
-	time.sleep(3)
+	mvc.offboard()
 	alt_control()
-	# while True:
-	# 	if(0<z2<0.2):
-	# 		print('In if loop')
-	# 		setmode('MANUAL')
-	# 		alt_control()
-	# 		print('reached end')

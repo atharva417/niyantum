@@ -15,12 +15,12 @@ data.model_name = 'iris'
 
 data.pose.position.x = 0.0
 data.pose.position.y = 0.0
-data.pose.position.z = 10.0
+data.pose.position.z = 20.0
 
 data.pose.orientation.x = 0.0
-data.pose.orientation.y = 0.0#0.246
+data.pose.orientation.y = 0.246
 data.pose.orientation.z = 0.0
-data.pose.orientation.w = 0.0#0.966
+data.pose.orientation.w = 0.966
 
 data.twist.linear.x = 0.0
 data.twist.linear.y = 0.0

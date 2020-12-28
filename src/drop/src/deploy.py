@@ -9,6 +9,7 @@ from geometry_msgs.msg import *
 from mavros_msgs.msg import *
 from mavros_msgs.srv import * 
 from sensor_msgs.msg import *
+from utils.offboard import mavcon
 
 
 
@@ -97,12 +98,12 @@ if __name__ == '__main__':
 	pub = rospy.Publisher('mavros/manual_control/send', ManualControl, queue_size=100)
 	rospy.Subscriber("/mavros/imu/data", Imu, imu_call)
 	rospy.Subscriber("/lidar/data", LaserScan, lid_call)
-	
+	mvc = mavcon()
 	setarm(1)
-	time.sleep(3)
+	time.sleep(2)
 	while True:
 		if(0<z2<0.2):
 			print('In if loop')
-			setmode('MANUAL')
-			alt_control()
+			mvc.offboard()
+			mvc.gotopose(0.0,0.0,8.0)
 			print('reached end')
