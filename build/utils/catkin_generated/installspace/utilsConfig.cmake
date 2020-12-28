@@ -67,14 +67,14 @@ set(utils_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(utils_SOURCE_PREFIX /home/atharva/controls/niyantum/src/utils)
-  set(utils_DEVEL_PREFIX /home/atharva/controls/niyantum/devel)
+  set(utils_SOURCE_PREFIX /home/harshil/niyantum/src/utils)
+  set(utils_DEVEL_PREFIX /home/harshil/niyantum/devel/.private/utils)
   set(utils_INSTALL_PREFIX "")
   set(utils_PREFIX ${utils_DEVEL_PREFIX})
 else()
   set(utils_SOURCE_PREFIX "")
   set(utils_DEVEL_PREFIX "")
-  set(utils_INSTALL_PREFIX /home/atharva/controls/niyantum/install)
+  set(utils_INSTALL_PREFIX /home/harshil/niyantum/install)
   set(utils_PREFIX ${utils_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/atharva/controls/niyantum/install/lib;/home/atharva/controls/deployment/devel/lib;/home/atharva/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/harshil/niyantum/install/lib;/home/harshil/niyantum/devel/lib;/home/harshil/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

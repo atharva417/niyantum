@@ -1,8 +1,1 @@
-prefix=/home/atharva/controls/niyantum/devel
-
-Name: utils
-Description: Description of utils
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+/home/harshil/niyantum/devel/.private/utils/lib/pkgconfig/utils.pc

@@ -1,2 +1,0 @@
-drop:utils
--DCATKIN_DEVEL_PREFIX=/home/atharva/controls/niyantum/devel -DCMAKE_INSTALL_PREFIX=/home/atharva/controls/niyantum/install -G Unix Makefiles

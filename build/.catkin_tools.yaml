@@ -1,0 +1,6 @@
+devel_space: /home/harshil/niyantum/devel
+install: false
+install_space: /home/harshil/niyantum/install
+profile: default
+source_space: /home/harshil/niyantum/src
+workspace: /home/harshil/niyantum
