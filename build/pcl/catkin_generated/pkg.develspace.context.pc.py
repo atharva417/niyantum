@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "pcl"
-PROJECT_SPACE_DIR = "/home/harshil/niyantum/devel/.private/pcl"
+PROJECT_SPACE_DIR = "/home/atharva/controls/niyantum/devel"
 PROJECT_VERSION = "0.0.0"

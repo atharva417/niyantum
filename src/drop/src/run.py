@@ -6,7 +6,7 @@ rospy.init_node('offboard_node', anonymous=True)
 mvc = mavcon()
 mvc.setarm(1)
 time.sleep(2)
-mvc.preoffboard()
+mvc.offboard()
 while(not rospy.is_shutdown()):
 	x,y,z = input('Where do u wanna go baby? ')
 	mvc.setmode('OFFBOARD')

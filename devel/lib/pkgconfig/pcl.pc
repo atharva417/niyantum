@@ -1,1 +1,8 @@
-/home/harshil/niyantum/devel/.private/pcl/lib/pkgconfig/pcl.pc
+prefix=/home/atharva/controls/niyantum/devel
+
+Name: pcl
+Description: Description of pcl
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

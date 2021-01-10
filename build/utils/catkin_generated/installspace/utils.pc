@@ -1,4 +1,4 @@
-prefix=/home/harshil/niyantum/install
+prefix=/home/atharva/controls/niyantum/install
 
 Name: utils
 Description: Description of utils
